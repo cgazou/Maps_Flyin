@@ -1,0 +1,18 @@
+# Test 3 : fourche à 2 branches de capacités très différentes.
+# path_a peut contenir 6 drones à la fois, path_b seulement 1.
+# Attendu : le partage équitable ne doit jamais "gaspiller" -- path_b
+# doit être utilisé à hauteur de sa capacité réelle (1 à la fois, mais
+# séquentiellement au fil des tours), pas juste ignoré au profit de
+# path_a.
+nb_drones: 20
+start_hub: start 0 0 [color=green]
+hub: junction 1 0 [color=yellow max_drones=7]
+hub: path_a 2 1 [color=blue max_drones=6]
+hub: path_b 2 -1 [color=blue max_drones=1]
+end_hub: goal 3 0 [color=gold]
+
+connection: start-junction [max_link_capacity=7]
+connection: junction-path_a [max_link_capacity=6]
+connection: junction-path_b [max_link_capacity=1]
+connection: path_a-goal [max_link_capacity=6]
+connection: path_b-goal [max_link_capacity=1]

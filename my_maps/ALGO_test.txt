@@ -1,0 +1,18 @@
+# Test map: Priority vs Normal paths (simple)
+nb_drones: 210
+
+start_hub: start 0 0 [color=green max_drones=10]
+hub: junction 1 0 [color=yellow max_drones=20]
+hub: normal_path 2 1 [color=blue max_drones=10]
+hub: priority_path 2 -1 [zone=priority color=gold max_drones=10]
+hub: normal_end 3 1 [color=blue max_drones=5]
+hub: priority_end 3 -1 [color=gold max_drones=5]
+end_hub: goal 4 0 [color=red max_drones=10]
+
+connection: start-junction [max_link_capacity=10]
+connection: junction-normal_path [max_link_capacity=5]
+connection: junction-priority_path [max_link_capacity=2]
+connection: normal_path-normal_end [max_link_capacity=5]
+connection: priority_path-priority_end [max_link_capacity=5]
+connection: normal_end-goal [max_link_capacity=5]
+connection: priority_end-goal [max_link_capacity=5]

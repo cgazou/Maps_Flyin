@@ -1,0 +1,68 @@
+nb_drones: 500
+
+start_hub: start 0 0 [color=green max_drones=500]
+
+# === Chemin A : 5 zones NORMAL → coût 5 (OPTIMAL) ===
+hub: A1 1 0 [color=blue max_drones=10]
+hub: A2 2 0 [color=blue max_drones=10]
+hub: A3 3 0 [color=blue max_drones=10]
+hub: A4 4 0 [color=blue max_drones=10]
+hub: A5 5 0 [color=blue max_drones=10]
+
+# === Chemin B : 4 NORMAL + 1 RESTRICTED → coût 6 ===
+# B1 à B4 sont NORMAL, B5 est RESTRICTED
+hub: B1 1 1 [color=blue max_drones=10]
+hub: B2 2 1 [color=blue max_drones=10]
+hub: B3 3 1 [color=blue max_drones=10]
+hub: B4 4 1 [color=blue max_drones=10]
+hub: B5 5 1 [zone=restricted color=red max_drones=5]
+
+# === Chemin C : 3 NORMAL + 2 RESTRICTED → coût 7 ===
+hub: C1 1 2 [color=blue max_drones=10]
+hub: C2 2 2 [color=blue max_drones=10]
+hub: C3 3 2 [color=blue max_drones=10]
+hub: C4 4 2 [zone=restricted color=red max_drones=5]
+hub: C5 5 2 [zone=restricted color=red max_drones=5]
+
+# === Chemin D : 2 NORMAL + 3 RESTRICTED → coût 8 ===
+hub: D1 1 3 [color=blue max_drones=10]
+hub: D2 2 3 [color=blue max_drones=10]
+hub: D3 3 3 [zone=restricted color=red max_drones=5]
+hub: D4 4 3 [zone=restricted color=red max_drones=5]
+hub: D5 5 3 [zone=restricted color=red max_drones=5]
+
+end_hub: goal 6 2 [color=red max_drones=500]
+
+# START → tous les chemins
+connection: start-A1 [max_link_capacity=100]
+connection: start-B1 [max_link_capacity=80]
+connection: start-C1 [max_link_capacity=60]
+connection: start-D1 [max_link_capacity=40]
+
+# Chemin A
+connection: A1-A2 [max_link_capacity=100]
+connection: A2-A3 [max_link_capacity=100]
+connection: A3-A4 [max_link_capacity=100]
+connection: A4-A5 [max_link_capacity=100]
+connection: A5-goal [max_link_capacity=100]
+
+# Chemin B
+connection: B1-B2 [max_link_capacity=80]
+connection: B2-B3 [max_link_capacity=80]
+connection: B3-B4 [max_link_capacity=80]
+connection: B4-B5 [max_link_capacity=80]
+connection: B5-goal [max_link_capacity=80]
+
+# Chemin C
+connection: C1-C2 [max_link_capacity=60]
+connection: C2-C3 [max_link_capacity=60]
+connection: C3-C4 [max_link_capacity=60]
+connection: C4-C5 [max_link_capacity=60]
+connection: C5-goal [max_link_capacity=60]
+
+# Chemin D
+connection: D1-D2 [max_link_capacity=40]
+connection: D2-D3 [max_link_capacity=40]
+connection: D3-D4 [max_link_capacity=40]
+connection: D4-D5 [max_link_capacity=40]
+connection: D5-goal [max_link_capacity=40]

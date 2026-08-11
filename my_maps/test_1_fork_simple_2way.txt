@@ -1,0 +1,14 @@
+# Test 1 : fourche simple, 2 branches symétriques (même coût, même capacité)
+# Attendu : partage ~50/50 entre path_a et path_b, utilisation en parallèle.
+nb_drones: 20
+start_hub: start 0 0 [color=green]
+hub: junction 1 0 [color=yellow max_drones=4]
+hub: path_a 2 1 [color=blue max_drones=3]
+hub: path_b 2 -1 [color=blue max_drones=3]
+end_hub: goal 3 0 [color=gold]
+
+connection: start-junction [max_link_capacity=4]
+connection: junction-path_a [max_link_capacity=3]
+connection: junction-path_b [max_link_capacity=3]
+connection: path_a-goal [max_link_capacity=3]
+connection: path_b-goal [max_link_capacity=3]

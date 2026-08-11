@@ -1,0 +1,183 @@
+# Hard: Three-layer pyramid with multiple ascent/descent paths
+nb_drones: 1000
+
+start_hub: start 0 3 [color=green max_drones=1000]
+hub: L1A 1 0 [color=blue max_drones=50]
+hub: L1B 1 1 [zone=restricted color=red max_drones=15]
+hub: L1C 1 2 [color=blue max_drones=50]
+hub: L1D 1 3 [color=blue max_drones=50]
+hub: L1E 1 4 [color=blue max_drones=50]
+hub: L1F 1 5 [zone=restricted color=red max_drones=15]
+hub: L1G 1 6 [color=blue max_drones=50]
+
+hub: L2A 2 0 [zone=restricted color=red max_drones=10]
+hub: L2B 2 1 [color=blue max_drones=50]
+hub: L2C 2 2 [color=blue max_drones=50]
+hub: L2D 2 3 [zone=restricted color=red max_drones=10]
+hub: L2E 2 4 [color=blue max_drones=50]
+hub: L2F 2 5 [color=blue max_drones=50]
+hub: L2G 2 6 [zone=restricted color=red max_drones=10]
+
+hub: L3A 3 0 [color=blue max_drones=50]
+hub: L3B 3 1 [color=blue max_drones=50]
+hub: L3C 3 2 [zone=restricted color=red max_drones=8]
+hub: L3D 3 3 [color=blue max_drones=50]
+hub: L3E 3 4 [zone=restricted color=red max_drones=8]
+hub: L3F 3 5 [color=blue max_drones=50]
+hub: L3G 3 6 [color=blue max_drones=50]
+
+hub: L4A 4 0 [color=blue max_drones=50]
+hub: L4B 4 1 [zone=restricted color=red max_drones=8]
+hub: L4C 4 2 [color=blue max_drones=50]
+hub: L4D 4 3 [color=blue max_drones=50]
+hub: L4E 4 4 [color=blue max_drones=50]
+hub: L4F 4 5 [zone=restricted color=red max_drones=8]
+hub: L4G 4 6 [color=blue max_drones=50]
+
+hub: L5A 5 0 [color=blue max_drones=50]
+hub: L5B 5 1 [color=blue max_drones=50]
+hub: L5C 5 2 [zone=restricted color=red max_drones=12]
+hub: L5D 5 3 [color=blue max_drones=50]
+hub: L5E 5 4 [zone=restricted color=red max_drones=12]
+hub: L5F 5 5 [color=blue max_drones=50]
+hub: L5G 5 6 [color=blue max_drones=50]
+
+hub: L6A 6 0 [zone=restricted color=red max_drones=6]
+hub: L6B 6 1 [color=blue max_drones=50]
+hub: L6C 6 2 [color=blue max_drones=50]
+hub: L6D 6 3 [zone=restricted color=red max_drones=6]
+hub: L6E 6 4 [color=blue max_drones=50]
+hub: L6F 6 5 [color=blue max_drones=50]
+hub: L6G 6 6 [zone=restricted color=red max_drones=6]
+
+end_hub: goal 7 3 [color=red max_drones=1000]
+
+# Connexions horizontales (chaque niveau)
+connection: start-L1D [max_link_capacity=400]
+connection: start-L1C [max_link_capacity=400]
+connection: start-L1E [max_link_capacity=400]
+connection: L1A-L1B [max_link_capacity=40]
+connection: L1B-L1C [max_link_capacity=40]
+connection: L1C-L1D [max_link_capacity=40]
+connection: L1D-L1E [max_link_capacity=40]
+connection: L1E-L1F [max_link_capacity=40]
+connection: L1F-L1G [max_link_capacity=40]
+
+connection: L2A-L2B [max_link_capacity=40]
+connection: L2B-L2C [max_link_capacity=40]
+connection: L2C-L2D [max_link_capacity=40]
+connection: L2D-L2E [max_link_capacity=40]
+connection: L2E-L2F [max_link_capacity=40]
+connection: L2F-L2G [max_link_capacity=40]
+
+connection: L3A-L3B [max_link_capacity=40]
+connection: L3B-L3C [max_link_capacity=40]
+connection: L3C-L3D [max_link_capacity=40]
+connection: L3D-L3E [max_link_capacity=40]
+connection: L3E-L3F [max_link_capacity=40]
+connection: L3F-L3G [max_link_capacity=40]
+
+connection: L4A-L4B [max_link_capacity=40]
+connection: L4B-L4C [max_link_capacity=40]
+connection: L4C-L4D [max_link_capacity=40]
+connection: L4D-L4E [max_link_capacity=40]
+connection: L4E-L4F [max_link_capacity=40]
+connection: L4F-L4G [max_link_capacity=40]
+
+connection: L5A-L5B [max_link_capacity=40]
+connection: L5B-L5C [max_link_capacity=40]
+connection: L5C-L5D [max_link_capacity=40]
+connection: L5D-L5E [max_link_capacity=40]
+connection: L5E-L5F [max_link_capacity=40]
+connection: L5F-L5G [max_link_capacity=40]
+
+connection: L6A-L6B [max_link_capacity=40]
+connection: L6B-L6C [max_link_capacity=40]
+connection: L6C-L6D [max_link_capacity=40]
+connection: L6D-L6E [max_link_capacity=40]
+connection: L6E-L6F [max_link_capacity=40]
+connection: L6F-L6G [max_link_capacity=40]
+
+# Connexions verticales (ascenseurs entre niveaux)
+# Colonne A
+connection: L1A-L2A [max_link_capacity=20]
+connection: L2A-L3A [max_link_capacity=20]
+connection: L3A-L4A [max_link_capacity=20]
+connection: L4A-L5A [max_link_capacity=20]
+connection: L5A-L6A [max_link_capacity=20]
+
+# Colonne B
+connection: L1B-L2B [max_link_capacity=20]
+connection: L2B-L3B [max_link_capacity=20]
+connection: L3B-L4B [max_link_capacity=20]
+connection: L4B-L5B [max_link_capacity=20]
+connection: L5B-L6B [max_link_capacity=20]
+
+# Colonne C
+connection: L1C-L2C [max_link_capacity=20]
+connection: L2C-L3C [max_link_capacity=20]
+connection: L3C-L4C [max_link_capacity=20]
+connection: L4C-L5C [max_link_capacity=20]
+connection: L5C-L6C [max_link_capacity=20]
+
+# Colonne D (centre)
+connection: L1D-L2D [max_link_capacity=30]
+connection: L2D-L3D [max_link_capacity=30]
+connection: L3D-L4D [max_link_capacity=30]
+connection: L4D-L5D [max_link_capacity=30]
+connection: L5D-L6D [max_link_capacity=30]
+
+# Colonne E
+connection: L1E-L2E [max_link_capacity=20]
+connection: L2E-L3E [max_link_capacity=20]
+connection: L3E-L4E [max_link_capacity=20]
+connection: L4E-L5E [max_link_capacity=20]
+connection: L5E-L6E [max_link_capacity=20]
+
+# Colonne F
+connection: L1F-L2F [max_link_capacity=20]
+connection: L2F-L3F [max_link_capacity=20]
+connection: L3F-L4F [max_link_capacity=20]
+connection: L4F-L5F [max_link_capacity=20]
+connection: L5F-L6F [max_link_capacity=20]
+
+# Colonne G
+connection: L1G-L2G [max_link_capacity=20]
+connection: L2G-L3G [max_link_capacity=20]
+connection: L3G-L4G [max_link_capacity=20]
+connection: L4G-L5G [max_link_capacity=20]
+connection: L5G-L6G [max_link_capacity=20]
+
+# Connexions diagonales (shortcuts entre colonnes)
+# Niveau 1
+connection: L1A-L2B [max_link_capacity=15]
+connection: L1B-L2C [max_link_capacity=15]
+connection: L1C-L2D [max_link_capacity=15]
+connection: L1D-L2E [max_link_capacity=15]
+connection: L1E-L2F [max_link_capacity=15]
+connection: L1F-L2G [max_link_capacity=15]
+
+# Niveau 3
+connection: L3A-L4B [max_link_capacity=15]
+connection: L3B-L4C [max_link_capacity=15]
+connection: L3C-L4D [max_link_capacity=15]
+connection: L3D-L4E [max_link_capacity=15]
+connection: L3E-L4F [max_link_capacity=15]
+connection: L3F-L4G [max_link_capacity=15]
+
+# Niveau 5
+connection: L5A-L6B [max_link_capacity=15]
+connection: L5B-L6C [max_link_capacity=15]
+connection: L5C-L6D [max_link_capacity=15]
+connection: L5D-L6E [max_link_capacity=15]
+connection: L5E-L6F [max_link_capacity=15]
+connection: L5F-L6G [max_link_capacity=15]
+
+# Sorties vers goal
+connection: L6D-goal [max_link_capacity=100]
+connection: L6C-goal [max_link_capacity=80]
+connection: L6E-goal [max_link_capacity=80]
+connection: L6B-goal [max_link_capacity=60]
+connection: L6F-goal [max_link_capacity=60]
+connection: L6A-goal [max_link_capacity=40]
+connection: L6G-goal [max_link_capacity=40]

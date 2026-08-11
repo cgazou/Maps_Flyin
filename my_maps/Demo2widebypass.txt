@@ -1,0 +1,17 @@
+# Démo 2 : détour large qui traverse une zone RESTRICTED
+# Le débit effectif du détour est divisé par 2 (500 -> 250), mais
+# ça reste largement mieux que la route directe (capacité 1) --
+# Yen doit s'activer malgré la pénalité RESTRICTED.
+nb_drones: 500
+start_hub: start 0 0 [max_drones=500]
+hub: A 1 0 [max_drones=500]
+hub: B 2 1 [max_drones=500]
+end_hub: goal 3 0 [max_drones=500]
+hub: C 2 -1 [zone=restricted max_drones=500]
+hub: D 3 -1 [max_drones=500]
+connection: start-A [max_link_capacity=500]
+connection: A-B [max_link_capacity=1]
+connection: B-goal [max_link_capacity=1]
+connection: A-C [max_link_capacity=500]
+connection: C-D [max_link_capacity=500]
+connection: D-goal [max_link_capacity=500]

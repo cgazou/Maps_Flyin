@@ -1,0 +1,20 @@
+# Test map with restricted zones
+nb_drones: 10
+
+start_hub: start 1 1 [color=orange max_drones=2 zone=blocked]
+hub: waypoint1 1 1 [color=blue max_drones=233333334567891234567894561]
+hub: restrictvdsfssssssssssssssssed1 2 0 [zone=restricted color=red max_drones=20000000000000000000000000]
+hub: waypoint2 3 0 [color=bluedsfd  max_drones=20000000000]
+hub: waypoint4 4 -1 [color=blue max_drones=20000000000]
+hub: waypoint5 5 1 [color=blue max_drones=200000000000]
+hub: waypoint6 3 2 [color=blue max_drones=2000000000]
+hub: waypoint7 3 3 [color=blue max_drones=2000000000000000]
+hub: waypoint8 6 1 [color=green max_drones=20000000000000 zone=blocked]
+hub: waypoint9 4 2 [color=green max_drones=200000000000000]
+end_hub: goal 4 0 [color=gold max_drones=2500000000000000000000]
+
+connection: start-waypoint1 [max_link_capacity=32222222222]
+connection: waypoint1-restrictvdsfssssssssssssssssed1 [max_link_capacity=10000000000000000]
+connection: restrictvdsfssssssssssssssssed1-waypoint2 [max_link_capacity=10000]
+connection: waypoint8-waypoint2 [max_link_capacity=100000]
+connection: waypoint2-goal [max_link_capacity=2500000]

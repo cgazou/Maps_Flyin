@@ -1,0 +1,24 @@
+# Test 6 : fourche avec une VRAIE bonne branche (directe vers goal), une
+# branche BLOCKED (doit être totalement écartée par le pruning), et un
+# détour plus long mais valide (2 zones normales en plus). Attendu :
+# le DAG ne doit retenir QUE la branche directe comme saut valable --
+# ni la branche bloquée (jamais empruntable), ni le détour (strictement
+# plus cher, donc pas à égalité malgré l'absence de RESTRICTED/PRIORITY).
+nb_drones: 15
+start_hub: start 0 0 [color=green]
+hub: fork 1 0 [color=yellow max_drones=5]
+hub: direct 2 0 [color=blue max_drones=5]
+hub: dead_zone 2 1 [zone=blocked color=red max_drones=20]
+hub: detour1 2 -1 [color=blue max_drones=5]
+hub: detour2 3 -1 [color=blue max_drones=5]
+end_hub: goal 4 0 [color=gold]
+
+connection: start-fork [max_link_capacity=5]
+connection: fork-direct [max_link_capacity=5]
+connection: fork-dead_zone [max_link_capacity=15]
+connection: fork-detour1 [max_link_capacity=5]
+connection: detour1-detour2 [max_link_capacity=5]
+
+connection: direct-goal [max_link_capacity=5]
+connection: dead_zone-goal [max_link_capacity=15]
+connection: detour2-goal [max_link_capacity=5]

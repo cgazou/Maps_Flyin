@@ -1,0 +1,27 @@
+# First uncommented line: number of drones
+nb_drones: 5
+
+# Start hub (must exist, capacity automatically set to nb_drones)
+start_hub: start 0 0 [color=green]
+
+# End hub (must exist, capacity automatically set to nb_drones)
+end_hub: goal 10 0 [color=yellow]
+
+# Regular zones: name (no dash or space) x y
+# Optional metadata: [zone, color, max_drones]
+#   zone: normal (default, 1 turn), restricted (2 turns), priority, blocked
+#   color: alphabetical only, unknown colors default to white
+#   max_drones: positive integer (default: 1)
+hub: left 1 1 [zone=normal color=blue max_drones=2]
+hub: right 1 -1 [zone=restricted color=red]
+hub: center 2 0 [zone=priority color=gold]
+hub: blocked 1 0 [zone=blocked color=purple]
+
+# Connections: zone1_name-zone2_name (zones must be declared before use)
+# Optional metadata: max_link_capacity (positive integer, default: 1)
+connection: start-left
+connection: start-right [max_link_capacity=2]
+connection: start-blocked
+connection: left-center
+connection: right-center
+connection: center-goal

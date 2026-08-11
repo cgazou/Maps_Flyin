@@ -1,0 +1,18 @@
+# Test 2 : fourche à 3 branches symétriques (comme false_hope3 sur la
+# carte "Impossible Dream"). Attendu : partage équilibré entre les 3,
+# jamais tout sur une seule.
+nb_drones: 30
+start_hub: start 0 0 [color=green]
+hub: junction 1 0 [color=yellow max_drones=6]
+hub: path_a 2 2 [color=blue max_drones=3]
+hub: path_b 2 0 [color=blue max_drones=3]
+hub: path_c 2 -2 [color=blue max_drones=3]
+end_hub: goal 3 0 [color=gold]
+
+connection: start-junction [max_link_capacity=6]
+connection: junction-path_a [max_link_capacity=3]
+connection: junction-path_b [max_link_capacity=3]
+connection: junction-path_c [max_link_capacity=3]
+connection: path_a-goal [max_link_capacity=3]
+connection: path_b-goal [max_link_capacity=3]
+connection: path_c-goal [max_link_capacity=3]

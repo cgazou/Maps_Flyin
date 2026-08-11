@@ -1,0 +1,17 @@
+# Test 7 : même topologie que le test 1, mais avec un très grand nombre
+# de drones. Attendu : ça doit rester rapide (pas de blocage) et le
+# nombre de DroneRange en mémoire doit rester très petit (quelques
+# unités), jamais proportionnel à nb_drones. Bon test de non-régression
+# pour l'efficacité mémoirede l'architecture par plages.
+nb_drones: 100000000000000000000000000000000000000000
+start_hub: start 0 0 [color=green]
+hub: junction 1 0 [color=yellow max_drones=2000000000000000000000000]
+hub: path_a 2 1 [color=blue max_drones=10000000000000000000000]
+hub: path_b 2 -1 [color=blue max_drones=10000000000000000000]
+end_hub: goal 3 0 [color=gold]
+
+connection: start-junction [max_link_capacity=20000000000000000000000000]
+connection: junction-path_a [max_link_capacity=10000000000000000000]
+connection: junction-path_b [max_link_capacity=1000000000000000000000000000]
+connection: path_a-goal [max_link_capacity=10000000000000000000000]
+connection: path_b-goal [max_link_capacity=10000000000000000000000]

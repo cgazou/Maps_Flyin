@@ -1,0 +1,16 @@
+# Medium: Diamond shape with restricted zones
+nb_drones: 30
+
+start_hub: start 0 0 [color=green max_drones=30]
+hub: entry 1 0 [zone=restricted color=red max_drones=6]
+hub: top 2 1 [zone=restricted color=red max_drones=3]
+hub: bottom 2 -1 [color=blue max_drones=10]
+hub: exit 3 0 [zone=restricted color=red max_drones=2]
+end_hub: goal 4 0 [color=red max_drones=30]
+
+connection: start-entry [max_link_capacity=6]
+connection: entry-top [max_link_capacity=5]
+connection: entry-bottom [max_link_capacity=10]
+connection: top-exit [max_link_capacity=5]
+connection: bottom-exit [max_link_capacity=10]
+connection: exit-goal [max_link_capacity=5]

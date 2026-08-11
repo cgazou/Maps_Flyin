@@ -1,0 +1,13 @@
+nb_drones: 5
+start_hub: start 0 0
+hub: M 1 0
+end_hub: goal 2 0
+hub: L1 1 1
+hub: L2 2 1
+hub: L3 1 2
+connection: start-M
+connection: M-goal
+connection: M-L1
+connection: L1-L2
+connection: L2-L3
+connection: L3-L1

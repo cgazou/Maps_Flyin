@@ -1,0 +1,20 @@
+# Test 4 : fourche entre une branche RESTRICTED courte (1 zone, coût 2)
+# et une branche NORMAL plus longue (2 zones, coût 1+1) -- construites
+# pour avoir EXACTEMENT le même coût total (3), malgré des types et des
+# longueurs différents. Attendu : les deux branches doivent apparaître
+# comme sauts valables depuis "fork" (le DAG doit les traiter à égalité
+# malgré leur nature différente).
+nb_drones: 20
+start_hub: start 0 0 [color=green]
+hub: fork 1 0 [color=yellow max_drones=6]
+hub: danger 2 1 [zone=restricted color=red max_drones=3]
+hub: safe1 2 -1 [color=blue max_drones=3]
+hub: safe2 3 -1 [color=blue max_drones=3]
+end_hub: goal 4 0 [color=gold]
+
+connection: start-fork [max_link_capacity=6]
+connection: fork-danger [max_link_capacity=3]
+connection: fork-safe1 [max_link_capacity=3]
+connection: safe1-safe2 [max_link_capacity=3]
+connection: danger-goal [max_link_capacity=3]
+connection: safe2-goal [max_link_capacity=3]

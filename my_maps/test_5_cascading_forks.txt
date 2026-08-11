@@ -1,0 +1,28 @@
+# Test 5 : deux niveaux de fourches successives (fork1 se divise en 2,
+# puis chaque branche se divise encore en 2), toutes convergeant vers
+# goal. Attendu : partage équitable à CHAQUE niveau, et les plages
+# (DroneRange) doivent se fusionner correctement après re-convergence
+# -- bon test pour vérifier _coalesce() sur une topologie à plusieurs
+# étages de fragmentation.
+nb_drones: 40
+start_hub: start 0 0 [color=green]
+hub: fork1 1 0 [color=yellow max_drones=8]
+hub: forkA 2 1 [color=orange max_drones=4]
+hub: forkB 2 -1 [color=orange max_drones=4]
+hub: a1 3 2 [color=blue max_drones=2]
+hub: a2 3 1 [color=blue max_drones=2]
+hub: b1 3 -1 [color=blue max_drones=2]
+hub: b2 3 -2 [color=blue max_drones=2]
+end_hub: goal 4 0 [color=gold]
+
+connection: start-fork1 [max_link_capacity=8]
+connection: fork1-forkA [max_link_capacity=4]
+connection: fork1-forkB [max_link_capacity=4]
+connection: forkA-a1 [max_link_capacity=2]
+connection: forkA-a2 [max_link_capacity=2]
+connection: forkB-b1 [max_link_capacity=2]
+connection: forkB-b2 [max_link_capacity=2]
+connection: a1-goal [max_link_capacity=2]
+connection: a2-goal [max_link_capacity=2]
+connection: b1-goal [max_link_capacity=2]
+connection: b2-goal [max_link_capacity=2]

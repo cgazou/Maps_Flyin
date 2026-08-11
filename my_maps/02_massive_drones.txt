@@ -1,0 +1,13 @@
+# Hard: Massive drone count with simple path
+nb_drones: 50000
+
+start_hub: start 0 0 [color=green max_drones=50000]
+hub: bottleneck 1 0 [zone=restricted color=red max_drones=100]
+hub: buffer 2 0 [color=blue max_drones=1000]
+hub: restricted_end 3 0 [zone=restricted color=red max_drones=50]
+end_hub: goal 4 0 [color=red max_drones=50000]
+
+connection: start-bottleneck [max_link_capacity=200]
+connection: bottleneck-buffer [max_link_capacity=200]
+connection: buffer-restricted_end [max_link_capacity=100]
+connection: restricted_end-goal [max_link_capacity=100]

@@ -1,0 +1,11 @@
+nb_drones: 12
+start_hub: start 0 0 [color=blue]
+hub: junction 1 0 [max_drones=12 color=yellow]
+hub: wide_path 2 1 [max_drones=12 color=brown]
+hub: narrow_path 2 -1 [max_drones=12 color=green]
+end_hub: goal 3 0 [color=red]
+connection: start-junction [max_link_capacity=12]
+connection: junction-wide_path [max_link_capacity=12]
+connection: junction-narrow_path [max_link_capacity=12]
+connection: wide_path-goal [max_link_capacity=2]
+connection: narrow_path-goal [max_link_capacity=1]
